@@ -143,7 +143,7 @@ export interface RecipeWithUnit {
   water: RecipeUnit;
   franchiseTax: RecipeUnit;
 }
-export function convertRecipeUnit(amount: number, key: keyof Recipe, unit: Unit): RecipeUnit {
+export function convertRecipeUnit(amount: number, key: keyof Recipe, unit: Unit): number {
   switch (key) {
     case 'bean1':
     case 'bean2':
@@ -152,15 +152,15 @@ export function convertRecipeUnit(amount: number, key: keyof Recipe, unit: Unit)
         amount /= 10;
       }
       if (unit === 'g') {
-        return { amount, unit };
+        return amount;
       } else if (unit === 'mg') {
-        return { amount: amount * 1000, unit };
+        return amount * 1000;
       } else if (unit === 'kg') {
-        return { amount: amount / 1000, unit };
+        return amount;
       } else if (unit === 'lb') {
-        return { amount: amount * 0.0022046226, unit };
+        return amount * 0.0022046226;
       } else if (unit === 'oz') {
-        return { amount: amount * 0.0321507466, unit };
+        return amount * 0.0321507466;
       } else {
         throw new Error('invalid unit');
       }
@@ -171,9 +171,9 @@ export function convertRecipeUnit(amount: number, key: keyof Recipe, unit: Unit)
     case 'cupL':
     case 'cupXL':
     case 'cupXXL':
-      return { amount, unit: 'count' };
+      return amount;
     case 'franchiseTax':
-      return { amount, unit: 'currency' };
+      return amount;
     case 'milk1':
     case 'milk2':
     case 'syrup1':
@@ -182,15 +182,15 @@ export function convertRecipeUnit(amount: number, key: keyof Recipe, unit: Unit)
     case 'syrup4':
     case 'water':
       if (unit === 'ml') {
-        return { amount, unit };
+        return amount;
       } else if (unit === 'l') {
-        return { amount: amount / 1000, unit: 'l' };
+        return amount / 1000;
       } else if (unit === 'gal') {
-        return { amount: amount * 0.0002641721, unit: 'gal' };
+        return amount * 0.0002641721;
       } else if (unit === 'pt') {
-        return { amount: amount * 0.0021133764, unit: 'pt' };
+        return amount * 0.0021133764;
       } else if (unit === 'oz') {
-        return { amount: amount / 29.57, unit: 'ml' };
+        return amount / 29.57;
       } else {
         throw new Error('invalid unit');
       }
