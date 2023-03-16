@@ -198,7 +198,7 @@ export function convertRecipeUnit(amount: number, key: keyof Recipe, unit: Unit)
       throw new Error('invalid key');
   }
 }
-export function convertToSmallMetricUnits(recipe: Recipe): RecipeWithUnit {
+export function convert(recipe: Recipe): RecipeWithUnit {
   return {
     bean1: { amount: recipe.bean1 / 10, unit: 'g' },
     bean2: { amount: recipe.bean2 / 10, unit: 'g' },

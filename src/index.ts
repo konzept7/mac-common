@@ -23,7 +23,7 @@ export {
   SizeName,
   Coffeemachine_SML,
   convertRecipeUnit,
-  convertToSmallMetricUnits,
+  convert,
   convertToLargeMetricUnits,
   convertToSmallUsUnits,
   convertToLargeUsUnits,
