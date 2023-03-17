@@ -1,4 +1,8 @@
 export interface IDevice {
+  /**
+   *
+   */
+
   $type: string;
   $fulltype: string;
   $interfaces: string[];

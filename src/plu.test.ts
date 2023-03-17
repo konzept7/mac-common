@@ -42,7 +42,7 @@ describe('product translations', () => {
         expect(product).toBeDefined();
         expect(product?.img).toBeDefined();
         expect(product?.img?.length ?? 0).toBeGreaterThan(0);
-        expect(product?.img).toMatch(/^\<svg/);
+        expect(product?.img).toMatch(/^<svg/);
       });
     });
   });
