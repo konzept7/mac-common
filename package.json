@@ -19,7 +19,8 @@
     "package": "npm run build && npm pack",
     "prettier": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint . --ext .ts",
-    "test": "vitest"
+    "test": "vitest",
+    "documentation": "typedoc src/index.ts"
   },
   "author": "Frank Bielecke",
   "license": "ISC",
@@ -32,6 +33,7 @@
     "eslint-plugin-tsdoc": "^0.2.17",
     "prettier": "^2.8.4",
     "rollup-plugin-typescript2": "^0.34.1",
+    "typedoc": "^0.23.27",
     "typescript": "^4.9.5",
     "vite": "^4.1.4",
     "vite-plugin-dts": "^2.1.0",
