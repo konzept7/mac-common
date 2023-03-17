@@ -120,6 +120,7 @@ export interface TaxConfig {
   receiptPrefix: string;
   merchantIdPOS: string;
   merchantIdECOM: string;
+  showsNetto?: boolean;
 }
 
 export interface IBox {

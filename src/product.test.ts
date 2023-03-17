@@ -5,7 +5,7 @@ import {
   convertToSmallUsUnits,
   convertToSmallMetricUnits,
   Recipe,
-} from './productConfiguration';
+} from './product';
 const smallRecipe: Recipe = {
   bean1: 10,
   bean2: 10,

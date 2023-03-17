@@ -1,4 +1,4 @@
-import { BeverageConfigurationBase } from './productConfiguration';
+import { BeverageConfigurationBase } from './product';
 
 export type VoucherBaseOption = 'onetime' | 'promo';
 

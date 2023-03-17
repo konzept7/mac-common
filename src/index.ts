@@ -2,9 +2,9 @@ import { getProduct, translateDeviceState, translateServerState, translateDevice
 export { getProduct, translateDeviceState, translateServerState, translateDevice, translateGoods };
 export type { Side, BoxState, ConnectionState } from './box';
 export type { Locale as locale, LocalesExtended as localesExtended } from './locales';
-export type { VoucherType, VoucherState, VoucherBaseOption, RedeemingDevice } from './voucherConfiguration';
-export { VoucherConfigurationDto, VoucherDto } from './voucherConfiguration';
-export type { VoucherConfiguration, VoucherUsage, VoucherUsageDto } from './voucherConfiguration';
+export type { VoucherType, VoucherState, VoucherBaseOption, RedeemingDevice } from './voucher';
+export { VoucherConfigurationDto, VoucherDto } from './voucher';
+export type { VoucherConfiguration, VoucherUsage, VoucherUsageDto } from './voucher';
 export type { JobStatus } from './job';
 export {
   ButtonNumberCondition,
@@ -23,11 +23,11 @@ export {
   SizeName,
   Coffeemachine_SML,
   convertRecipeUnit,
-  convert,
+  convertToSmallMetricUnits,
   convertToLargeMetricUnits,
   convertToSmallUsUnits,
   convertToLargeUsUnits,
-} from './productConfiguration';
+} from './product';
 import {
   JobDescriptionParameter,
   JobDescription,
@@ -47,8 +47,8 @@ export {
 export { IDevice, IRefillableDevice, BoxConfig, IBoxPresence, DeviceState, TaxConfig, BoxReduced } from './box';
 export type { Origin, OrderStatus } from './order';
 export { ILiveOrder, LiveOrder } from './order';
-export { ProductTranslation, SeasonalProductTranslation } from './products';
-export type { TranslationFile } from './products';
+export { ProductTranslation, SeasonalProductTranslation } from './plu';
+export type { TranslationFile } from './plu';
 export { sampleBoxConfig } from './sample-data/sampleBox';
 export {
   sampleVoucher1,
@@ -59,4 +59,4 @@ export {
 } from './sample-data/sampleVoucher';
 export { sampleProductMatrix } from './sample-data/sampleProductMatrix';
 export { sampleLiveOrder1, sampleLiveOrder2, sampleLiveOrder3, sampleLiveOrder4 } from './sample-data/sampleOrders';
-export type { Unit } from './productConfiguration';
+export type { Unit } from './product';

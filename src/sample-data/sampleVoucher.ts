@@ -1,4 +1,4 @@
-import { VoucherDto } from '../voucherConfiguration';
+import { VoucherDto } from '../voucher';
 
 export const sampleVoucher1: VoucherDto = {
   id: 'MYAPP100',
