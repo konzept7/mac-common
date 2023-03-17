@@ -149,7 +149,7 @@ export function convertRecipeUnit(amount: number, key: keyof Recipe, unit: Unit)
     case 'bean2':
     case 'powder':
       if (key === 'bean1' || key === 'bean2') {
-        amount /= 10;
+        amount = amount / 10;
       }
       if (unit === 'g') {
         return amount;
