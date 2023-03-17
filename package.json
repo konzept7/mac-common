@@ -17,6 +17,7 @@
     "build:types": "node tools/cleanup types && tsc -p config/tsconfig.types.json",
     "clean": "node tools/cleanup",
     "package": "npm run build && npm pack",
+    "prettier": "prettier --write \"src/**/*.ts\"",
     "test": "vitest"
   },
   "author": "Frank Bielecke",
