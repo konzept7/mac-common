@@ -1,6 +1,16 @@
 import { DeviceState, IDevice } from './device';
 import { Locale, LocalesExtended } from './locales';
-
+export type DeviceType =
+  | 'Robot'
+  | 'CoffeeMachine_WMF9000s'
+  | 'RippleMakerMkII'
+  | 'PaymentTerminalDummy'
+  | 'PaymentTerminalCastles'
+  | 'PaymentTerminalAdyen'
+  | 'Gate'
+  | 'Scanner'
+  | 'DisplayDevice'
+  | 'CupHolder';
 /**
  * Configuration of a box.
  *
