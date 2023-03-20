@@ -1,11 +1,12 @@
 import { getProduct, translateDeviceState, translateServerState, translateDevice, translateGoods } from './translate';
 export { getProduct, translateDeviceState, translateServerState, translateDevice, translateGoods };
-export type { Side, BoxState, ConnectionState } from './box';
+export type { Side } from './device';
+export type { BoxState, ConnectionState, IBox } from './box';
 export type { Locale as locale, LocalesExtended as localesExtended } from './locales';
 export type { VoucherType, VoucherState, VoucherBaseOption, RedeemingDevice } from './voucher';
 export { VoucherConfigurationDto, VoucherDto } from './voucher';
 export type { VoucherConfiguration, VoucherUsage, VoucherUsageDto } from './voucher';
-export type { JobStatus } from './job';
+export type { JobStatus } from './jobs/job';
 export {
   ButtonNumberCondition,
   ProductConfiguration,
@@ -35,7 +36,7 @@ import {
   JobCreationConfiguration,
   RunningJobDescription,
   CustomJobUpdate,
-} from './job';
+} from './jobs/job';
 export {
   JobDescriptionParameter,
   JobDescription,
@@ -44,7 +45,9 @@ export {
   RunningJobDescription,
   CustomJobUpdate,
 };
-export { IDevice, IRefillableDevice, BoxConfig, IBoxPresence, DeviceState, TaxConfig, BoxReduced } from './box';
+
+export { IDevice, IRefillableDevice, DeviceState } from './device';
+export { BoxConfig, IBoxPresence, TaxConfig, BoxReduced } from './box';
 export type { Origin, OrderStatus } from './order';
 export { ILiveOrder, LiveOrder } from './order';
 export { ProductTranslation, SeasonalProductTranslation } from './plu';
@@ -60,3 +63,4 @@ export {
 export { sampleProductMatrix } from './sample-data/sampleProductMatrix';
 export { sampleLiveOrder1, sampleLiveOrder2, sampleLiveOrder3, sampleLiveOrder4 } from './sample-data/sampleOrders';
 export type { Unit } from './product';
+export { BookingBeverage, BookingOrder } from './booking';

@@ -1,4 +1,5 @@
-import { BoxState, DeviceState } from './box';
+import { DeviceState } from './device';
+import { BoxState } from './box';
 import { Locale } from './locales';
 import { DeProducts, EnProducts, EsProducts, FrProducts, ProductTranslation, TranslationFile } from './plu';
 import i18n from 'i18next';
