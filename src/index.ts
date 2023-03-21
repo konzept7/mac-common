@@ -2,10 +2,10 @@ import { getProduct, translateDeviceState, translateServerState, translateDevice
 export { getProduct, translateDeviceState, translateServerState, translateDevice, translateGoods };
 export type { Side } from './device';
 export type { BoxState, ConnectionState, IBox } from './box';
-export type { Locale as locale, LocalesExtended as localesExtended } from './locales';
+export type { Locale, LocalesExtended } from './locales';
 export type { VoucherType, VoucherState, VoucherBaseOption, RedeemingDevice } from './voucher';
 export { VoucherConfigurationDto, VoucherDto } from './voucher';
-export type { IVoucherConfiguration as VoucherConfiguration, VoucherUsage, VoucherUsageDto } from './voucher';
+export type { IVoucherConfiguration, VoucherUsage, VoucherUsageDto, calculateVoucherValue } from './voucher';
 export type { JobStatus } from './jobs/job';
 export {
   ButtonNumberCondition,
@@ -54,9 +54,9 @@ export { ProductTranslation, SeasonalProductTranslation } from './plu';
 export type { TranslationFile } from './plu';
 export { sampleBoxConfig } from './sample-data/sampleBox';
 export {
-  samplePercentVoucher as sampleVoucher1,
-  samplePriceVoucher as sampleVoucher2,
-  sampleBeverageVoucher as sampleVoucher3,
+  samplePercentVoucher,
+  samplePriceVoucher,
+  sampleBeverageVoucher,
   sampleVoucher4,
   sampleVoucher5,
 } from './sample-data/sampleVoucher';
