@@ -5,7 +5,7 @@ export type { BoxState, ConnectionState, IBox } from './box';
 export type { Locale as locale, LocalesExtended as localesExtended } from './locales';
 export type { VoucherType, VoucherState, VoucherBaseOption, RedeemingDevice } from './voucher';
 export { VoucherConfigurationDto, VoucherDto } from './voucher';
-export type { VoucherConfiguration, VoucherUsage, VoucherUsageDto } from './voucher';
+export type { IVoucherConfiguration as VoucherConfiguration, VoucherUsage, VoucherUsageDto } from './voucher';
 export type { JobStatus } from './jobs/job';
 export {
   ButtonNumberCondition,
@@ -54,9 +54,9 @@ export { ProductTranslation, SeasonalProductTranslation } from './plu';
 export type { TranslationFile } from './plu';
 export { sampleBoxConfig } from './sample-data/sampleBox';
 export {
-  sampleVoucher1,
-  sampleVoucher2,
-  sampleVoucher3,
+  samplePercentVoucher as sampleVoucher1,
+  samplePriceVoucher as sampleVoucher2,
+  sampleBeverageVoucher as sampleVoucher3,
   sampleVoucher4,
   sampleVoucher5,
 } from './sample-data/sampleVoucher';

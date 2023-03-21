@@ -1,6 +1,6 @@
 import { VoucherDto } from '../voucher';
 
-export const sampleVoucher1: VoucherDto = {
+export const samplePercentVoucher: VoucherDto = {
   id: 'MYAPP100',
   boxId: '1',
   creationDate: new Date(),
@@ -19,7 +19,7 @@ export const sampleVoucher1: VoucherDto = {
   usedCredit: 0,
 };
 
-export const sampleVoucher2: VoucherDto = {
+export const samplePriceVoucher: VoucherDto = {
   id: 'MYAPP101',
   boxId: '1',
   creationDate: new Date(),
@@ -30,15 +30,15 @@ export const sampleVoucher2: VoucherDto = {
   tag1: 'tag1',
   tag2: 'tag2',
   tag3: undefined,
-  priceCut: undefined,
-  percentCut: 10,
+  priceCut: 50,
+  percentCut: undefined,
   beverageConfiguration: undefined,
   ttl: undefined,
   state: 'redeemed',
   usedCredit: 0,
 };
 
-export const sampleVoucher3: VoucherDto = {
+export const sampleBeverageVoucher: VoucherDto = {
   id: 'MYAPP102',
   boxId: '1',
   creationDate: new Date(),
@@ -50,7 +50,7 @@ export const sampleVoucher3: VoucherDto = {
   tag2: 'tag2',
   tag3: undefined,
   priceCut: undefined,
-  percentCut: 10,
+  percentCut: undefined,
   beverageConfiguration: {
     productId: 301,
     extra: [2211],

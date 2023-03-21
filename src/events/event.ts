@@ -1,41 +1,30 @@
-enum Device {
-  MainServer = 'MainServer',
-  Coffeemachine = 'Coffeemachine',
-  Printer = 'Printer',
-  Gate = 'Gate',
-  Payment = 'Payment',
-  Queue = 'Queue',
-  Terminal = 'Terminal',
-  Robot = 'Robot',
-  Scanner = 'Scanner',
-  CupHolder = 'CupHolder',
-}
+import { DeviceType } from '../device';
 
-const codePrefix = (device: Device) => {
+export const codePrefix = (device: DeviceType) => {
   switch (device) {
-    case Device.MainServer:
-      return 'A';
-    case Device.Coffeemachine:
+    case 'CoffeeMachine_WMF9000s':
       return 'C';
-    case Device.Printer:
+    case 'RippleMakerMkII':
       return 'P';
-    case Device.Gate:
+    case 'Gate':
       return 'G';
-    case Device.Payment:
+    case 'PaymentTerminalDummy':
+    case 'PaymentTerminalAdyen':
+    case 'PaymentTerminalCastles':
       return 'F';
-    case Device.Queue:
+    case 'DisplayDevice':
+    case 'Queue':
       return 'Q';
-    case Device.Terminal:
+    case 'Terminal':
       return 'O';
-    case Device.Robot:
+    case 'Robot':
       return 'R';
-    case Device.Scanner:
+    case 'Scanner':
       return 'S';
-    case Device.CupHolder:
+    case 'CupHolder':
       return 'B';
-
     default:
-      throw new Error('prefix for key ' + device + ' not known');
+      return 'A';
   }
 };
 
@@ -90,7 +79,7 @@ export enum SharedEventCodes {
 }
 
 export interface EventTemplate {
-  Device: Device;
+  Device: DeviceType;
   Code: string;
   Severity: EventSeverity;
   NotificationOption: EventNotificationOption;

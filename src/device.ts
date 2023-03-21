@@ -1,4 +1,11 @@
+/**
+ * Side of the device (Front of House), used to determine the shortest path for the robot.
+ */
 export type Side = 'Center' | 'L' | 'R';
+
+/**
+ * All states that a device can be in.
+ */
 export type DeviceState = 'ShutDown' | 'Available' | 'ProcessingJob' | 'JobDone' | 'Error' | 'Maintenance' | 'Disabled';
 export type DeviceType =
   | 'Robot'
@@ -7,12 +14,17 @@ export type DeviceType =
   | 'PaymentTerminalDummy'
   | 'PaymentTerminalAdyen'
   | 'PaymentTerminalCastles'
+  | 'Terminal'
+  | 'Queue'
   | 'Gate'
   | 'Scanner'
   | 'DisplayDevice'
   | 'CupHolder'
   | 'IceMachine';
 
+/**
+ * All interfaces that the device implements. It is used by several frontends to determine which actions are available.
+ */
 export type DeviceInterface =
   | 'ICoffeeMachine'
   | 'IWebsocketDevice'
@@ -68,7 +80,7 @@ export interface IDevice {
    */
   Nicename: string;
   /**
-   * Side of the device, used to determine the shortest path for the robot.
+   * Side of the device (Front of House), used to determine the shortest path for the robot.
    */
   Side?: Side;
   /**

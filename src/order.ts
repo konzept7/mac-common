@@ -1,5 +1,5 @@
 import { BeverageConfiguration } from './product';
-import { VoucherDto } from './voucher';
+import { calculateVoucherValue, VoucherDto } from './voucher';
 
 /**
  * Queued: order is in the queue, production pending
@@ -107,25 +107,4 @@ export const calculatePrice = (cart: (BeverageConfiguration | VoucherDto)[]): nu
   console.log('voucher value', voucherValue);
   const price = priceInCents / 100 - voucherValue;
   return price < 0 ? 0 : price;
-};
-
-export const calculateVoucherValue = (cart: (BeverageConfiguration | VoucherDto)[]): number => {
-  const filteredCart = cart.filter((cv) => (cv as BeverageConfiguration)?.productId) as Array<BeverageConfiguration>;
-  const voucher = cart.find((ci) => (ci as VoucherDto)?.baseOption) as VoucherDto;
-  console.log('calculating voucher value', filteredCart, voucher);
-  if (!voucher) return 0;
-  if (voucher.type === 'percent') {
-    if (filteredCart.length === 0) return 0;
-    const minPrice = Math.min(...filteredCart.map((ci) => ci.price));
-    const percentCut = Math.floor(minPrice * (voucher.percentCut! / 100));
-    console.log('percent cut', percentCut);
-    return percentCut;
-  } else if (voucher.type === 'price') {
-    return voucher.priceCut!;
-  } else if (voucher.type === 'beverage') {
-    if (!voucher.beverageConfiguration) return 0;
-    const beverage = filteredCart.find((v) => v.isFromVoucher);
-    console.log('beverage for calculating voucher value', beverage, beverage?.price);
-    return beverage?.price ?? 0;
-  } else return 0;
 };
