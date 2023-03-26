@@ -46,7 +46,7 @@ export {
   CustomJobUpdate,
 };
 
-export { IDevice, IRefillableDevice, DeviceState } from './device';
+export { IDevice, IRefillableDevice, DeviceState, IDeviceUpdateMessage } from './device';
 export { BoxConfig, IBoxPresence, TaxConfig, BoxReduced } from './box';
 export type { Origin, OrderStatus } from './order';
 export { ILiveOrder, LiveOrder } from './order';
