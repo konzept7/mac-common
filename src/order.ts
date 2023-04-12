@@ -7,7 +7,7 @@ import { calculateVoucherValue, VoucherDto } from './voucher';
  * Completed: order is completed and ready to be picked up
  * PickedUp: order is picked up by the user
  */
-export type OrderStatus = 'Booked' | 'Running' | 'PickedUp' | 'Completed' | 'Queued';
+export type OrderStatus = 'Booked' | 'Running' | 'PickedUp' | 'Completed' | 'Queued' | 'Failed';
 /**
  * Terminal: order was created by the terminal
  * App: order was created by the app
