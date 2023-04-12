@@ -64,3 +64,11 @@ export { sampleProductMatrix } from './sample-data/sampleProductMatrix';
 export { sampleLiveOrder1, sampleLiveOrder2, sampleLiveOrder3, sampleLiveOrder4 } from './sample-data/sampleOrders';
 export type { Unit } from './product';
 export { BookingBeverage, BookingOrder } from './booking';
+export {
+  codePrefix,
+  EventSeverity,
+  EventNotificationOption,
+  EventAction,
+  SharedEventCodes,
+  EventTemplate,
+} from './events/event';
