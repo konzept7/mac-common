@@ -34,7 +34,7 @@ export interface JobDescription {
  *
  */
 export interface JobDescriptionOption {
-  name: string;
+  name: JobOption;
   description: string;
 }
 
@@ -94,21 +94,21 @@ class JobRequest {
     this.operation = job.jobDocument.operation!;
   }
 }
-enum JobOption {
-  soft = 'soft',
-  hard = 'hard',
-  forced = 'forced',
-  unpause = 'unpause',
-  block = 'block',
-  unblock = 'unblock',
-  deviceshutdown = 'ShutDown',
-  devicedisabled = 'Disabled',
-  on = 'on',
-  off = 'off',
-  noAutostart = 'no-autostart',
-  autostart = 'autostart',
-  immediateRestart = 'immediate-restart',
-}
+type JobOption =
+  | 'soft'
+  | 'hard'
+  | 'forced'
+  | 'unpause'
+  | 'block'
+  | 'unblock'
+  | 'ShutDown'
+  | 'Disabled'
+  | 'on'
+  | 'off'
+  | 'no-autostart'
+  | 'autostart'
+  | 'immediate-restart';
+
 class JobDocument {
   operation?: string;
   isRestartNeeded?: boolean;
