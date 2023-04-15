@@ -48,7 +48,7 @@ export interface JobDescriptionParameter {
   onOption?: string[];
 }
 export interface JobCreationConfiguration {
-  document: unknown;
+  document: JobDocument;
   targets: string[];
   template: JobDescription;
   id: string;
