@@ -90,7 +90,8 @@ class JobRequest {
     this.status = job.status;
     this.statusDetails = job.statusDetails;
     this.jobId = job.jobId;
-    this.operation = job.jobDocument.operation;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    this.operation = job.jobDocument.operation!;
   }
 }
 enum JobOption {
