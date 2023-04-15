@@ -109,25 +109,25 @@ enum JobOption {
   immediateRestart = 'immediate-restart',
 }
 class JobDocument {
-  operation!: string;
-  isRestartNeeded: boolean | undefined;
-  images: Array<string> | undefined;
-  isForced: boolean | undefined;
-  command: string | undefined;
-  option: JobOption | undefined;
-  parameters: Record<string, string> | undefined;
-  url: string | undefined;
-  body: string | undefined;
-  httpMethod: string | undefined;
-  boxId: string | undefined;
-  amount: number | undefined;
-  shadowCondition: any | undefined;
-  includeForTest: string | undefined;
+  operation?: string;
+  isRestartNeeded?: boolean;
+  images?: Array<string>;
+  isForced?: boolean;
+  command?: string;
+  option?: JobOption;
+  parameters?: Record<string, string>;
+  url?: string;
+  body?: string;
+  httpMethod?: string;
+  boxId?: string;
+  amount?: number;
+  shadowCondition?: any;
+  includeForTest?: string;
 }
 // details about the step we are currently in
 class StatusDetails {
   progress: number | undefined;
-  errorCode: string | undefined;
+  errorCode?: string;
   currentStep: string | undefined;
 }
 
