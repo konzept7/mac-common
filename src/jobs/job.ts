@@ -19,10 +19,7 @@ export interface JobDescription {
   /**
    * The type of the job. This is used to identify the job in the frontend.
    */
-  value: string;
-  label: string;
-  timeout: string;
-  description: string;
+  timeout: number;
   isBatchable?: boolean;
   allowedBoxStates?: BoxState[] | null;
   caution?: string;
