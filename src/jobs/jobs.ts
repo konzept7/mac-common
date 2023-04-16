@@ -50,8 +50,7 @@ const cup = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="n
    <path d="M6 8v-1a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v1"></path>
    <path d="M15 5v-2"></path>
 </svg>`;
-const crane =
-  -`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+const crane = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
    <path d="M6 21h6"></path>
    <path d="M9 21v-18l-6 6h18"></path>
@@ -256,7 +255,7 @@ export const jobs = [
   {
     name: 'shutdown',
     timeout: 15,
-    icon: rocketOff,
+    icon: planeArrival,
     category: 'system',
     options: [
       {
