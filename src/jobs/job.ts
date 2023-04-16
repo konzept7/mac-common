@@ -34,7 +34,7 @@ export interface JobDescription {
   icon: string;
   category: JobCategory;
   isBatchable?: boolean;
-  allowedBoxStates?: BoxState[] | null;
+  serverstates?: BoxState[] | null;
   caution?: keyof typeof de.jobs.cautions;
   isAdminOnly?: boolean;
   options?: JobDescriptionOption[];
