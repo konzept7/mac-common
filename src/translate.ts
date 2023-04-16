@@ -8,7 +8,7 @@ import de from './locales/de.json';
 import en from './locales/en.json';
 import fr from './locales/fr.json';
 import es from './locales/es.json';
-import { JobDescription } from './jobs/job';
+import { JobDescription, JobStatus } from './jobs/job';
 
 export const resources = {
   en: {
@@ -102,6 +102,14 @@ export function translateJobCaution(locale: Locale, jobName: string) {
 export function translateJobOption(locale: Locale, jobName: keyof typeof de.jobs.options, option: string) {
   return i18n.t(`jobs.options.${jobName}.${option}`, { lng: locale });
 }
+export function translateJobOptionName(locale: Locale, option: string) {
+  return i18n.t(`jobs.optionNames.${option}`, { lng: locale });
+}
+
+export function translateJobStatus(locale: Locale, status: JobStatus) {
+  return i18n.t(`jobs.status.${status}`, { lng: locale });
+}
+
 export function translateJobOptions(locale: Locale, jobName: keyof typeof de.jobs.options) {
   // check that job exists and has options
   if (!(jobName in de.jobs.options)) {
