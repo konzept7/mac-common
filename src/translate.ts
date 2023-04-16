@@ -8,6 +8,7 @@ import de from './locales/de.json';
 import en from './locales/en.json';
 import fr from './locales/fr.json';
 import es from './locales/es.json';
+import { JobDescription } from './jobs/job';
 
 export const resources = {
   en: {
@@ -83,4 +84,47 @@ export function translateDevice(locale: Locale, device: string): string {
 
 export function translateGoods(locale: Locale, goods: string): string {
   return i18n.t(`goods.${goods}`, { lng: locale });
+}
+
+export function translateJobName(locale: Locale, jobName: string): string {
+  return i18n.t(`jobs.names.${jobName}`, { lng: locale });
+}
+export function translateJobDescription(locale: Locale, jobName: string): string {
+  return i18n.t(`jobs.descriptions.${jobName}`, { lng: locale });
+}
+export function translateJobCaution(locale: Locale, jobName: string) {
+  // check that job exists and has caution
+  if (!(jobName in de.jobs.cautions)) {
+    return undefined;
+  }
+  return i18n.t(`jobs.cautions.${jobName}`, { lng: locale });
+}
+export function translateJobOption(locale: Locale, jobName: keyof typeof de.jobs.options, option: string) {
+  return i18n.t(`jobs.options.${jobName}.${option}`, { lng: locale });
+}
+export function translateJobOptions(locale: Locale, jobName: keyof typeof de.jobs.options) {
+  // check that job exists and has options
+  if (!(jobName in de.jobs.options)) {
+    return null;
+  }
+
+  const options = Object.keys(de.jobs.options[jobName]);
+  return options.reduce((pv, cv) => {
+    pv[cv] = i18n.t(`jobs.options.${jobName}.${cv}`, { lng: locale });
+    return pv;
+  }, {} as Record<string, string>);
+}
+export function translateJob(locale: Locale, job: JobDescription) {
+  const translation: { name: string; description: string; caution?: string } = {
+    name: translateJobName(locale, job.name),
+    description: translateJobDescription(locale, job.name),
+  };
+  if (job.caution) {
+    translation.caution = translateJobCaution(locale, job.name);
+  }
+  return translation;
+}
+
+export function translateJobStep(locale: Locale, jobName: keyof typeof de.jobs.names, stepName: string) {
+  return i18n.t(`jobs.steps.${jobName}.${stepName}`, { lng: locale });
 }

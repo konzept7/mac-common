@@ -1,5 +1,5 @@
 import type { BoxState } from '../box';
-
+import de from '../locales/de.json';
 /**
  * Helper function to create the base topic for a job.
  * @param thingName - The unique ID or thing name of the box.
@@ -11,18 +11,31 @@ export function baseJobTopic(thingName: string) {
 /**
  * Job descriptions are used to create remote jobs from the frontend.
  */
+export type JobCategory =
+  | 'maintenance'
+  | 'configuration'
+  | 'unknown'
+  | 'device'
+  | 'test'
+  | 'control'
+  | 'system'
+  | 'troubleshooting'
+  | 'schedule'
+  | 'other';
 export interface JobDescription {
   /**
    * The name of the job. Must be unique, because it is also used by the consumer to identify the job.
    */
-  name: string;
+  name: keyof typeof de.jobs.names;
   /**
    * The type of the job. This is used to identify the job in the frontend.
    */
   timeout: number;
+  icon: string;
+  category: JobCategory;
   isBatchable?: boolean;
   allowedBoxStates?: BoxState[] | null;
-  caution?: string;
+  caution?: keyof typeof de.jobs.cautions;
   isAdminOnly?: boolean;
   options?: JobDescriptionOption[];
   parameters?: JobDescriptionParameter[];
@@ -31,8 +44,7 @@ export interface JobDescription {
  *
  */
 export interface JobDescriptionOption {
-  name: JobOption;
-  description: string;
+  name: keyof typeof de.jobs.optionNames;
 }
 
 /**
@@ -40,9 +52,8 @@ export interface JobDescriptionOption {
  */
 export interface JobDescriptionParameter {
   type: string;
-  message: string;
   name: string;
-  onOption?: string[];
+  onOption?: keyof (typeof de.jobs.optionNames)[];
 }
 export interface JobCreationConfiguration {
   document: JobDocument;
@@ -91,35 +102,20 @@ class JobRequest {
     this.operation = job.jobDocument.operation!;
   }
 }
-type JobOption =
-  | 'soft'
-  | 'hard'
-  | 'forced'
-  | 'unpause'
-  | 'block'
-  | 'unblock'
-  | 'ShutDown'
-  | 'Disabled'
-  | 'on'
-  | 'off'
-  | 'no-autostart'
-  | 'autostart'
-  | 'immediate-restart';
 
 class JobDocument {
-  operation?: string;
+  operation?: keyof typeof de.jobs.names;
   isRestartNeeded?: boolean;
   images?: Array<string>;
   isForced?: boolean;
   command?: string;
-  option?: JobOption;
+  option?: keyof typeof de.jobs.optionNames;
   parameters?: Record<string, string>;
   url?: string;
   body?: string;
   httpMethod?: string;
   boxId?: string;
   amount?: number;
-  shadowCondition?: any;
   includeForTest?: string;
 }
 // details about the step we are currently in
@@ -140,3 +136,33 @@ interface IJob {
   Succeed(message: string): JobRequest;
   Fail(reason: string, errorCode: string): JobRequest;
 }
+
+export const createNewJobConfiguration = (
+  description: JobDescription | null,
+  copyFromExisting: JobCreationConfiguration | null,
+  boxId: string,
+): JobCreationConfiguration | null => {
+  if (!description) {
+    return null;
+  }
+  const jc: JobCreationConfiguration = {
+    template: description,
+    document: {
+      operation: description.name,
+    },
+    targets: [`arn:aws:iot:eu-central-1:311842024294:thing/${boxId}`],
+    id: '',
+  };
+  if (description.options && description.options.length > 0) {
+    jc.document.option = description.options[0].name;
+  }
+  if (description.parameters) {
+    jc.document.parameters = {};
+    const existingParameters = Object.keys(copyFromExisting?.document.parameters || {});
+    for (const p of description.parameters) {
+      if (existingParameters.includes(p.name) && copyFromExisting?.document.parameters)
+        jc.document.parameters[p.name] = copyFromExisting.document.parameters[p.name];
+    }
+  }
+  return jc;
+};
