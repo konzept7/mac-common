@@ -217,7 +217,7 @@ const bulb = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="
    <path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3"></path>
    <path d="M9.7 17l4.6 0"></path>
 </svg>`;
-export const jobs = [
+export const jobs: JobDescription[] = [
   {
     name: 'start',
     timeout: 20,
@@ -617,4 +617,4 @@ export const jobs = [
       },
     ],
   },
-] as JobDescription[];
+];

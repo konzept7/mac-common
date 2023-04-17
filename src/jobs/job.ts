@@ -34,7 +34,7 @@ export interface JobDescription {
   icon: string;
   category: JobCategory;
   isBatchable?: boolean;
-  serverstates?: BoxState[] | null;
+  serverstates?: (BoxState | 'closed')[] | null;
   caution?: keyof typeof de.jobs.cautions;
   isAdminOnly?: boolean;
   options?: JobDescriptionOption[];
@@ -51,9 +51,9 @@ export interface JobDescriptionOption {
  *
  */
 export interface JobDescriptionParameter {
-  type: string;
+  type: 'string' | 'number' | 'boolean' | 'serverstate' | 'date' | string;
   name: string;
-  onOption?: keyof (typeof de.jobs.optionNames)[];
+  onOption?: (keyof typeof de.jobs.optionNames)[];
 }
 export interface JobCreationConfiguration {
   document: JobDocument;
