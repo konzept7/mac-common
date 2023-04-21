@@ -1315,7 +1315,7 @@ export const FrProducts: TranslationFile = {
     img: `${coffee}`,
   },
   3050: {
-    name: 'Iced Latte ohne Schaum',
+    name: 'Iced Latte sans mousse',
     description: 'Glace, espresso, lait',
     img: `${coffeeIced}`,
   },
