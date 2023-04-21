@@ -41,6 +41,10 @@ export const productTranslations: Record<Locale, TranslationFile> = {
 };
 
 export function getProduct(PLU: number, locale: Locale): ProductTranslation | null {
+  if (!(locale in productTranslations)) {
+    throw new Error(`Locale ${locale} not supported.`);
+  }
+
   const directTranslation = productTranslations[locale][PLU];
   if (directTranslation) {
     return {
@@ -65,7 +69,7 @@ export function getProduct(PLU: number, locale: Locale): ProductTranslation | nu
       img: baseTranslation.img,
     };
   }
-  throw new Error(`PLU ${PLU} does neither exist in requested locale nor in German master.`);
+  return null;
 }
 
 export function translateDeviceState(locale: Locale, state?: DeviceState): string {

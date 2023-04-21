@@ -473,6 +473,16 @@ export const DeProducts: TranslationFile = {
       name: 'Pfefferminz',
     },
   },
+  3000: {
+    name: 'Latte ohne Schaum',
+    description: 'Espresso, Milch',
+    img: `${coffee}`,
+  },
+  3050: {
+    name: 'Iced Latte ohne Schaum',
+    description: 'Eis, Espresso, Milch',
+    img: `${coffeeIced}`,
+  },
 };
 
 export const EnProducts: TranslationFile = {
@@ -880,6 +890,16 @@ export const EnProducts: TranslationFile = {
     Winter: {
       name: 'Peppermint',
     },
+  },
+  3000: {
+    name: 'Latte no foam',
+    description: 'Espresso, milk',
+    img: `${coffee}`,
+  },
+  3050: {
+    name: 'Iced Latte no foam',
+    description: 'Ice, espresso, milk',
+    img: `${coffeeIced}`,
   },
 };
 
@@ -1289,6 +1309,16 @@ export const FrProducts: TranslationFile = {
       name: 'Menthe poivrée',
     },
   },
+  3000: {
+    name: 'Latte sans mousse',
+    description: 'Espresso, lait',
+    img: `${coffee}`,
+  },
+  3050: {
+    name: 'Iced Latte ohne Schaum',
+    description: 'Glace, espresso, lait',
+    img: `${coffeeIced}`,
+  },
 };
 
 export const EsProducts: TranslationFile = {
@@ -1696,5 +1726,15 @@ export const EsProducts: TranslationFile = {
     Winter: {
       name: 'Menta',
     },
+  },
+  3000: {
+    name: 'Latte sin espuma',
+    description: 'Espresso, leche',
+    img: `${coffee}`,
+  },
+  3050: {
+    name: 'Iced Latte sin espuma',
+    description: 'Hielo, espresso, leche',
+    img: `${coffeeIced}`,
   },
 };
