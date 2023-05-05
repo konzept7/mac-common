@@ -26,7 +26,7 @@ export interface JobDescription {
   /**
    * The name of the job. Must be unique, because it is also used by the consumer to identify the job.
    */
-  name: keyof typeof de.jobs.names;
+  name: string;
   /**
    * The type of the job. This is used to identify the job in the frontend.
    */
@@ -35,7 +35,7 @@ export interface JobDescription {
   category: JobCategory;
   isBatchable?: boolean;
   serverstates?: (BoxState | 'closed')[] | null;
-  caution?: keyof typeof de.jobs.cautions;
+  caution?: string;
   isAdminOnly?: boolean;
   options?: JobDescriptionOption[];
   parameters?: JobDescriptionParameter[];
@@ -44,7 +44,7 @@ export interface JobDescription {
  *
  */
 export interface JobDescriptionOption {
-  name: keyof typeof de.jobs.optionNames;
+  name: string;
 }
 
 /**
@@ -53,7 +53,7 @@ export interface JobDescriptionOption {
 export interface JobDescriptionParameter {
   type: 'string' | 'number' | 'boolean' | 'serverstate' | 'date' | string;
   name: string;
-  onOption?: (keyof typeof de.jobs.optionNames)[];
+  onOption?: string[];
 }
 export interface JobCreationConfiguration {
   document: JobDocument;
@@ -104,12 +104,12 @@ class JobRequest {
 }
 
 class JobDocument {
-  operation?: keyof typeof de.jobs.names;
+  operation?: string;
   isRestartNeeded?: boolean;
   images?: Array<string>;
   isForced?: boolean;
   command?: string;
-  option?: keyof typeof de.jobs.optionNames;
+  option?: string;
   parameters?: Record<string, string>;
   url?: string;
   body?: string;

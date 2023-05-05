@@ -103,7 +103,7 @@ export function translateJobCaution(locale: Locale, jobName: string) {
   }
   return i18n.t(`jobs.cautions.${jobName}`, { lng: locale });
 }
-export function translateJobOption(locale: Locale, jobName: keyof typeof de.jobs.options, option: string) {
+export function translateJobOption(locale: Locale, jobName: string, option: string) {
   return i18n.t(`jobs.options.${jobName}.${option}`, { lng: locale });
 }
 export function translateJobOptionName(locale: Locale, option: string) {
@@ -116,13 +116,12 @@ export function translateJobStatus(locale: Locale, status: JobStatus) {
   return i18n.t(`jobs.status.${status}`, { lng: locale });
 }
 
-export function translateJobOptions(locale: Locale, jobName: keyof typeof de.jobs.options) {
+export function translateJobOptions(locale: Locale, jobName: string) {
   // check that job exists and has options
   if (!(jobName in de.jobs.options)) {
     return null;
   }
-
-  const options = Object.keys(de.jobs.options[jobName]);
+  const options = Object.keys(de.jobs.options[jobName as keyof typeof de.jobs.options]);
   return options.reduce((pv, cv) => {
     pv[cv] = i18n.t(`jobs.options.${jobName}.${cv}`, { lng: locale });
     return pv;
@@ -139,6 +138,6 @@ export function translateJob(locale: Locale, job: JobDescription) {
   return translation;
 }
 
-export function translateJobStep(locale: Locale, jobName: keyof typeof de.jobs.names, stepName: string) {
+export function translateJobStep(locale: Locale, jobName: string, stepName: string) {
   return i18n.t(`jobs.steps.${jobName}.${stepName}`, { lng: locale });
 }
