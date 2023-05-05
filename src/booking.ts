@@ -68,7 +68,7 @@ export class BookingOrder {
    */
   createdAt!: string;
   /**
-   * Sum of all individual drinks. This only includes taxes if the showsNetto flag of the box is not set or set to false.
+   * Sum of all individual drinks. This only includes taxes if the isNetto flag of the box is not set or set to false.
    * @see TaxConfig
    */
   sum!: number;

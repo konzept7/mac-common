@@ -292,7 +292,7 @@ export interface TaxConfig {
    * @example true
    * @default false
    */
-  showsNetto?: boolean;
+  isNetto?: boolean;
 }
 
 /**

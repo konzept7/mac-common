@@ -216,6 +216,46 @@
       "on": "An",
       "soft": "Normal"
     },
+    "parameters": {
+      "test-beverage": {
+        "amount": "Anzahl an Getränken"
+      },
+      "trash": {
+        "device": "Gerät"
+      },
+      "check-device": {
+        "device": "Das zu prüfende Gerät"
+      },
+      "restart-device": {
+        "device": "Das Gerät, das neugestartet werden soll"
+      },
+      "deactivate-device": {
+        "device": "Das zu deaktivierende Gerät"
+      },
+      "robot-test": {
+        "includeForTest": "Diese Bewegungen sollen getestet werden"
+      },
+      "set-start": {
+        "rebootTime": "Startzeit der Kaffeebar"
+      },
+      "shell": {
+        "command": "Auszuführender Befehl"
+      },
+      "message": {
+        "message": "Welche Nachricht soll verschickt werden?"
+      },
+      "robot-command": {
+        "command": "Auszuführender Befehl"
+      },
+      "set-server-state": {
+        "newstate": "Neuer Serverstate"
+      },
+      "end-maintenance": {
+        "rebootTime": "Startzeit der Kaffeebar",
+        "leftPrinterCartridge": "Linke Druckerpatrone gewechselt",
+        "rightPrinterCartridge": "Rechte Druckerpatrone gewechselt"
+      }
+    },
     "steps": {
       "block-orders": {
         "allOrdersFinished": "Alle Bestellungen abgeschlossen",
