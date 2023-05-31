@@ -343,6 +343,7 @@ export class BoxReduced implements IBox {
     city?: string,
     company?: string,
     state?: BoxState | undefined,
+    hierarchyId?: string | undefined,
   ) {
     this.id = id;
     this.name = name;
@@ -351,6 +352,7 @@ export class BoxReduced implements IBox {
     this.city = city;
     this.company = company;
     this.state = state;
+    this.hierarchyId = hierarchyId;
   }
 
   id: string;
@@ -360,4 +362,5 @@ export class BoxReduced implements IBox {
   city?: string;
   company?: string;
   state?: BoxState | undefined;
+  hierarchyId?: string | undefined;
 }
