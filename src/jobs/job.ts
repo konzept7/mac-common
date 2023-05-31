@@ -75,8 +75,8 @@ export interface CustomJobUpdate {
     currentStep?: string;
   };
   jobId: string;
+  boxId: string;
   operation: string;
-  timestamp: Date;
 }
 export const JOBTOPICS = {
   GET_ACCEPTED: 'get/accepted',

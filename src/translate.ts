@@ -109,7 +109,7 @@ export function translateJobOption(locale: Locale, jobName: string, option: stri
 export function translateJobOptionName(locale: Locale, option: string) {
   return i18n.t(`jobs.optionNames.${option}`, { lng: locale });
 }
-export function translateJobParameternName(locale: Locale, jobName: string, parameterName: string) {
+export function translateJobParameterName(locale: Locale, jobName: string, parameterName: string) {
   return i18n.t(`jobs.parameters.${jobName}.${parameterName}`, { lng: locale });
 }
 export function translateJobStatus(locale: Locale, status: JobStatus) {
