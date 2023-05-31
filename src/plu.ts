@@ -473,6 +473,54 @@ export const DeProducts: TranslationFile = {
       name: 'Pfefferminz',
     },
   },
+  2340: {
+    name: 'Saisonsirup',
+    img: `${flavor}`,
+    Spring: {
+      name: 'Kokos',
+    },
+    Summer: {
+      name: 'Kokos',
+    },
+    Autumn: {
+      name: 'Pumpkin Spice',
+    },
+    Winter: {
+      name: 'Pfefferminz',
+    },
+  },
+  2341: {
+    name: 'Saisonsirup',
+    img: `${flavor}`,
+    Spring: {
+      name: 'Kokos',
+    },
+    Summer: {
+      name: 'Kokos',
+    },
+    Autumn: {
+      name: 'Pumpkin Spice',
+    },
+    Winter: {
+      name: 'Pfefferminz',
+    },
+  },
+  2342: {
+    name: 'Saisonsirup',
+    img: `${flavor}`,
+    Spring: {
+      name: 'Kokos',
+    },
+    Summer: {
+      name: 'Kokos',
+    },
+    Autumn: {
+      name: 'Pumpkin Spice',
+    },
+    Winter: {
+      name: 'Pfefferminz',
+    },
+  },
   3000: {
     name: 'Latte ohne Schaum',
     description: 'Espresso, Milch',
@@ -883,6 +931,54 @@ export const EnProducts: TranslationFile = {
     },
     Summer: {
       name: 'Marshmallow',
+    },
+    Autumn: {
+      name: 'Pumpkin Spice',
+    },
+    Winter: {
+      name: 'Peppermint',
+    },
+  },
+  2340: {
+    name: 'Season special',
+    img: `${flavor}`,
+    Spring: {
+      name: 'Coconut',
+    },
+    Summer: {
+      name: 'Coconut',
+    },
+    Autumn: {
+      name: 'Pumpkin Spice',
+    },
+    Winter: {
+      name: 'Peppermint',
+    },
+  },
+  2341: {
+    name: 'Season special',
+    img: `${flavor}`,
+    Spring: {
+      name: 'Coconut',
+    },
+    Summer: {
+      name: 'Coconut',
+    },
+    Autumn: {
+      name: 'Pumpkin Spice',
+    },
+    Winter: {
+      name: 'Peppermint',
+    },
+  },
+  2342: {
+    name: 'Season special',
+    img: `${flavor}`,
+    Spring: {
+      name: 'Coconut',
+    },
+    Summer: {
+      name: 'Coconut',
     },
     Autumn: {
       name: 'Pumpkin Spice',
@@ -1309,6 +1405,54 @@ export const FrProducts: TranslationFile = {
       name: 'Menthe poivrée',
     },
   },
+  2340: {
+    name: 'Sirop de saison',
+    img: `${flavor}`,
+    Spring: {
+      name: 'Noix de coco',
+    },
+    Summer: {
+      name: 'Noix de coco',
+    },
+    Autumn: {
+      name: 'Citrouille épicée',
+    },
+    Winter: {
+      name: 'Menthe poivrée',
+    },
+  },
+  2341: {
+    name: 'Sirop de saison',
+    img: `${flavor}`,
+    Spring: {
+      name: 'Noix de coco',
+    },
+    Summer: {
+      name: 'Noix de coco',
+    },
+    Autumn: {
+      name: 'Citrouille épicée',
+    },
+    Winter: {
+      name: 'Menthe poivrée',
+    },
+  },
+  2342: {
+    name: 'Sirop de saison',
+    img: `${flavor}`,
+    Spring: {
+      name: 'Noix de coco',
+    },
+    Summer: {
+      name: 'Noix de coco',
+    },
+    Autumn: {
+      name: 'Citrouille épicée',
+    },
+    Winter: {
+      name: 'Menthe poivrée',
+    },
+  },
   3000: {
     name: 'Latte sans mousse',
     description: 'Espresso, lait',
@@ -1719,6 +1863,54 @@ export const EsProducts: TranslationFile = {
     },
     Summer: {
       name: 'Malvavisco',
+    },
+    Autumn: {
+      name: 'Calabaza especiada',
+    },
+    Winter: {
+      name: 'Menta',
+    },
+  },
+  2340: {
+    name: 'Sirope de la temporada',
+    img: `${flavor}`,
+    Spring: {
+      name: 'Coco',
+    },
+    Summer: {
+      name: 'Coco',
+    },
+    Autumn: {
+      name: 'Calabaza especiada',
+    },
+    Winter: {
+      name: 'Menta',
+    },
+  },
+  2341: {
+    name: 'Sirope de la temporada',
+    img: `${flavor}`,
+    Spring: {
+      name: 'Coco',
+    },
+    Summer: {
+      name: 'Coco',
+    },
+    Autumn: {
+      name: 'Calabaza especiada',
+    },
+    Winter: {
+      name: 'Menta',
+    },
+  },
+  2342: {
+    name: 'Sirope de la temporada',
+    img: `${flavor}`,
+    Spring: {
+      name: 'Coco',
+    },
+    Summer: {
+      name: 'Coco',
     },
     Autumn: {
       name: 'Calabaza especiada',

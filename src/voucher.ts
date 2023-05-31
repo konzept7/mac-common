@@ -149,6 +149,11 @@ export class VoucherUsageDto {
  * Used to collect usage statistics.
  */
 export class VoucherUsage {
+  /**
+   * Creates a new instance of the `VoucherUsage` class.
+   * @param voucher The voucher associated with the usage.
+   * @param voucherUsageDto The DTO representing the voucher usage, if available.
+   */
   constructor(voucher: VoucherDto, voucherUsageDto: VoucherUsageDto | null = null) {
     this.id = voucher.id;
     this.boxId = voucher.boxId;
@@ -170,23 +175,58 @@ export class VoucherUsage {
     this.usedCredit = voucherUsageDto?.usedCredit ?? 0;
   }
 
+  /** The ID of the voucher usage. */
   id!: string;
+
+  /** The ID of the box associated with the voucher usage. */
   boxId!: string;
+
+  /** The date and time when the voucher usage was created. */
   creationDate!: Date;
+
+  /** The base option of the voucher associated with the usage. */
   baseOption!: VoucherBaseOption;
+
+  /** The type of the voucher associated with the usage. */
   type!: VoucherType;
+
+  /** The date and time when the voucher was redeemed, if applicable. */
   redemptionDate?: Date;
+
+  /** The device that redeemed the voucher, if applicable. */
   redeemingDevice?: RedeemingDevice;
+
+  /** The date and time when the voucher expires. */
   expiryDate?: Date;
+
+  /** The number of times the voucher has been used. */
   usages?: number = 0;
+
+  /** The first tag associated with the voucher. */
   tag1?: string;
+
+  /** The second tag associated with the voucher. */
   tag2?: string;
+
+  /** The third tag associated with the voucher. */
   tag3?: string;
+
+  /** The price cut associated with the voucher, if applicable. */
   priceCut?: number;
+
+  /** The percent cut associated with the voucher, if applicable. */
   percentCut?: number;
+
+  /** The beverage configuration associated with the voucher, if applicable. */
   beverageConfiguration?: BeverageConfigurationBase;
+
+  /** The time-to-live (TTL) of the voucher, in seconds. */
   ttl?: number;
+
+  /** The state of the voucher. */
   state!: VoucherState;
+
+  /** The amount of credit used by the voucher, if applicable. */
   usedCredit?: number = 0;
 }
 

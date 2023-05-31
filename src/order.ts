@@ -13,34 +13,47 @@ export type OrderStatus = 'Booked' | 'Running' | 'PickedUp' | 'Completed' | 'Que
  * App: order was created by the app
  */
 export type Origin = 'Terminal' | 'App';
-
 /**
  * Orders as sent to the MQTT broker. Special interface because only primitive values are allowed.
  * Extra field is a string of numbers separated by #.
- *
- * @param id - id of the order
- * @param currentDevice - id of the device that is currently producing the order
- * @param box - id of the box where the order was placed
- * @param status - status of the order
- * @param product - product PLU
- * @param extra - extra ingredients
- * @param createdAt - timestamp of order creation
- * @param type - whether the order was created by the terminal or the app
- * @param hasPrint - whether the order has a print
  */
 export interface ILiveOrder {
+  /** The ID of the order. */
   id: string;
+
+  /** The ID of the device that is currently producing the order. */
   currentDevice: string;
+
+  /** The ID of the box where the order was placed. */
   box: string;
+
+  /** The status of the order. */
   status: OrderStatus;
+
+  /** The product PLU. */
   product: number;
+
+  /** The extra ingredients. */
   extra: string;
+
+  /** The timestamp of order creation. */
   createdAt: number;
+
+  /** Whether the order was created by the terminal or the app. */
   type: Origin;
+
+  /** Whether the order has a print. */
   hasPrint: boolean;
 }
 
+/**
+ * Represents a live order.
+ */
 export class LiveOrder {
+  /**
+   * Creates a new instance of the `LiveOrder` class.
+   * @param liveOrder The live order data.
+   */
   constructor(liveOrder: ILiveOrder) {
     this.id = liveOrder.id;
     this.currentDevice = liveOrder.currentDevice;
@@ -56,27 +69,72 @@ export class LiveOrder {
     this.hasPrint = liveOrder.hasPrint;
   }
 
+  /** The ID of the order. */
   id: string;
+
+  /** The ID of the device that is currently producing the order. */
   currentDevice: string;
+
+  /** The ID of the box where the order was placed. */
   box: string;
+
+  /** The status of the order. */
   status: OrderStatus;
+
+  /** The product PLU. */
   product: number;
+
+  /** The extra ingredients. */
   extra: number[];
+
+  /** The timestamp of order creation. */
   createdAt: Date;
+
+  /** Whether the order was created by the terminal or the app. */
   type: Origin;
+
+  /** Whether the order has a print. */
   hasPrint: boolean;
 }
+
+/**
+ * Represents an order created by the terminal.
+ */
 export class TerminalOrder {
+  /** The ID of the order. */
   id!: string;
+
+  /** The beverages included in the order. */
   beverages!: (BeverageConfiguration | VoucherDto)[];
+
+  /** The name of the person picking up the order. */
   pickupName!: string;
+
+  /** The price of the order in cents. */
   priceInCent!: number;
+
+  /** The QR code associated with the order, if applicable. */
   qr: string | undefined;
+
+  /** Whether the order is instant. */
   isInstant = true;
+
+  /** The type of the order. */
   type = 'Terminal';
+
+  /** The voucher associated with the order, if applicable. */
   voucher: VoucherDto | undefined;
+
+  /** The amount of credit used by the voucher, if applicable. */
   usedCredit = 0;
 
+  /**
+   * Creates a new instance of the `TerminalOrder` class.
+   * @param id The ID of the order.
+   * @param beverages The beverages included in the order.
+   * @param pickupName The name of the person picking up the order.
+   * @param voucher The voucher associated with the order, if applicable.
+   */
   constructor(
     id: string,
     beverages: (BeverageConfiguration | VoucherDto)[],
