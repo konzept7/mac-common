@@ -11,6 +11,21 @@ export type DeviceType =
   | 'Scanner'
   | 'DisplayDevice'
   | 'CupHolder';
+
+export interface OpeningTimes {
+  Monday?: OpeningTimesDay;
+  Tuesday?: OpeningTimesDay;
+  Wednesday?: OpeningTimesDay;
+  Thursday?: OpeningTimesDay;
+  Friday?: OpeningTimesDay;
+  Saturday?: OpeningTimesDay;
+  Sunday?: OpeningTimesDay;
+}
+
+export interface OpeningTimesDay {
+  start?: string | null;
+  end?: string | null;
+}
 /**
  * Configuration of a box.
  *
@@ -113,10 +128,7 @@ export interface BoxConfig {
   /**
    * The opening hours of the box. This is used to determine whether the box is open or closed.
    */
-  times: Record<
-    'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday',
-    { start: string; end: string }
-  >;
+  times: OpeningTimes;
 
   /**
    * The time zone of the box. This is used to determine the current time.
