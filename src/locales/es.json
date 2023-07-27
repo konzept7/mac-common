@@ -10,6 +10,17 @@
     "ProcessingJob": "empleado",
     "ShutDown": "Fuera de"
   },
+  "customerFeedback": {
+    "inProduction": "En elaboración",
+    "startsSoon": "En resumen",
+    "gate": "Salida",
+    "ice": "Hielo",
+    "brew": "Café",
+    "print": "Imprimir",
+    "ready": "Listo",
+    "appstate": "Tu cafetería MyAppCafé volverá a estar disponible enseguida.",
+    "ordersblocked": "Tu cafetería MyAppCafé no acepta actualmente nuevos pedidos."
+  },
   "deviceTypes": {
     "CoffeeMachine_WMF9000s_one": "maquina de cafe",
     "CoffeeMachine_WMF9000s_other": "máquinas de café",

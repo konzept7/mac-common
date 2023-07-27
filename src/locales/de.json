@@ -10,6 +10,17 @@
     "ProcessingJob": "Beschäftigt",
     "ShutDown": "Aus"
   },
+  "customerFeedback": {
+    "appstate": "Deine MyAppCafé-Bar wird gleich wieder verfügbar sein.",
+    "ordersblocked": "Deine MyAppCafé-Bar nimmt derzeit keine neuen Bestellungen an.",
+    "ready": "Fertig",
+    "inProduction": "Jetzt in Bearbeitung",
+    "startsSoon": "in Kürze",
+    "gate": "Ausgabe",
+    "ice": "Eis",
+    "brew": "Kaffee",
+    "print": "Druck"
+  },
   "deviceTypes": {
     "CoffeeMachine_WMF9000s_one": "Kaffeemaschine",
     "CoffeeMachine_WMF9000s_other": "Kaffeemaschinen",

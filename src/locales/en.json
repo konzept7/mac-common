@@ -10,6 +10,17 @@
     "ProcessingJob": "Processing job",
     "ShutDown": "Shutdown"
   },
+  "customerFeedback": {
+    "inProduction": "In Production",
+    "startsSoon": "In Queue",
+    "gate": "Door",
+    "ice": "Ice",
+    "brew": "Brew",
+    "print": "Print",
+    "ready": "Ready",
+    "appstate": "Your MyAppCafé Box will be available again shortly.",
+    "ordersblocked": "Your MyAppCafé Box currently does not accept new orders."
+  },
   "deviceTypes": {
     "CoffeeMachine_WMF9000s_one": "Coffee machine",
     "CoffeeMachine_WMF9000s_other": "Coffee machines",
