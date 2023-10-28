@@ -199,6 +199,20 @@ export function convertRecipeUnit(amount: number, key: keyof Recipe, unit: Unit)
       throw new Error('invalid key');
   }
 }
+
+export function getCurrentSeason(): Season {
+  const month = new Date().getMonth();
+  if (month >= 2 && month <= 4) {
+    return Season.Spring;
+  } else if (month >= 5 && month <= 7) {
+    return Season.Summer;
+  } else if (month >= 8 && month <= 10) {
+    return Season.Autumn;
+  } else {
+    return Season.Winter;
+  }
+}
+
 export function convertToSmallMetricUnits(recipe: Recipe): RecipeWithUnit {
   return {
     bean1: { amount: recipe.bean1 / 10, unit: 'g' },

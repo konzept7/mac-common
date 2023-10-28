@@ -26,6 +26,7 @@ export {
   convertToLargeMetricUnits,
   convertToSmallUsUnits,
   convertToLargeUsUnits,
+  getCurrentSeason,
 } from './product';
 export * from './jobs/job';
 
