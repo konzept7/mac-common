@@ -13,7 +13,7 @@ export function toLocale(localeExtended: LocaleExtended | Locale | string): Loca
   const regex = /^([a-zA-Z]{2})(-[a-zA-Z]{2})?$/;
   const match = regex.exec(localeExtended);
   if (match) {
-    return match[1] as Locale;
+    return match[1].toLowerCase() as Locale;
   } else {
     throw new Error('invalid locale');
   }

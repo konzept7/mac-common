@@ -1,7 +1,8 @@
 export * from './translate';
 export type { Side } from './device';
 export type { BoxState, ConnectionState, IBox } from './box';
-export type { Locale, LocaleExtended, toLocale } from './locales';
+export type { Locale, LocaleExtended } from './locales';
+export { toLocale } from './locales';
 export type { VoucherType, VoucherState, VoucherBaseOption, RedeemingDevice } from './voucher';
 export { VoucherConfigurationDto, VoucherDto } from './voucher';
 export type { IVoucherConfiguration, VoucherUsage, VoucherUsageDto, calculateVoucherValue } from './voucher';
