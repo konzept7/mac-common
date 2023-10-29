@@ -1,6 +1,6 @@
 import { DeviceState } from './device';
 import { BoxState } from './box';
-import { Locale } from './locales';
+import { Locale, LocaleExtended, toLocale } from './locales';
 import { DeProducts, EnProducts, EsProducts, FrProducts, ProductTranslation, TranslationFile } from './plu';
 import i18n from 'i18next';
 
@@ -40,7 +40,8 @@ export const productTranslations: Record<Locale, TranslationFile> = {
   es: EsProducts,
 };
 
-export function getProduct(PLU: number, locale: Locale): ProductTranslation | null {
+export function getProduct(PLU: number, locale: Locale | LocaleExtended): ProductTranslation | null {
+  locale = toLocale(locale);
   if (!(locale in productTranslations)) {
     throw new Error(`Locale ${locale} not supported.`);
   }
@@ -72,72 +73,72 @@ export function getProduct(PLU: number, locale: Locale): ProductTranslation | nu
   return null;
 }
 
-export function translateDeviceState(locale: Locale, state?: DeviceState): string {
-  return i18n.t(`deviceStates.${state ?? 'Unknown'}`, { lng: locale });
+export function translateDeviceState(locale: Locale | LocaleExtended, state?: DeviceState): string {
+  return i18n.t(`deviceStates.${state ?? 'Unknown'}`, { lng: toLocale(locale) });
 }
 
-export function translateServerState(locale: Locale, state?: BoxState): string {
+export function translateServerState(locale: Locale | LocaleExtended, state?: BoxState): string {
   return i18n.t(`serverStates.${state ?? 'Unknown'}`, {
-    lng: locale,
+    lng: toLocale(locale),
   });
 }
 
-export function translateDevice(locale: Locale, device: string): string {
-  return i18n.t(`deviceTypes.${device}`, { lng: locale });
+export function translateDevice(locale: Locale | LocaleExtended, device: string): string {
+  return i18n.t(`deviceTypes.${device}`, { lng: toLocale(locale) });
 }
 
-export function translateGoods(locale: Locale, goods: string): string {
-  return i18n.t(`goods.${goods}`, { lng: locale });
+export function translateGoods(locale: Locale | LocaleExtended, goods: string): string {
+  return i18n.t(`goods.${goods}`, { lng: toLocale(locale) });
 }
 
-export function translateJobName(locale: Locale, jobName: string): string {
-  return i18n.t(`jobs.names.${jobName}`, { lng: locale });
+export function translateJobName(locale: Locale | LocaleExtended, jobName: string): string {
+  return i18n.t(`jobs.names.${jobName}`, { lng: toLocale(locale) });
 }
-export function translateJobDescription(locale: Locale, jobName: string): string {
-  return i18n.t(`jobs.descriptions.${jobName}`, { lng: locale });
+export function translateJobDescription(locale: Locale | LocaleExtended, jobName: string): string {
+  return i18n.t(`jobs.descriptions.${jobName}`, { lng: toLocale(locale) });
 }
-export function translateJobCaution(locale: Locale, jobName: string) {
+export function translateJobCaution(locale: Locale | LocaleExtended, jobName: string) {
   // check that job exists and has caution
   if (!(jobName in de.jobs.cautions)) {
     return undefined;
   }
-  return i18n.t(`jobs.cautions.${jobName}`, { lng: locale });
+  return i18n.t(`jobs.cautions.${jobName}`, { lng: toLocale(locale) });
 }
-export function translateJobOption(locale: Locale, jobName: string, option: string) {
-  return i18n.t(`jobs.options.${jobName}.${option}`, { lng: locale });
+export function translateJobOption(locale: Locale | LocaleExtended, jobName: string, option: string) {
+  return i18n.t(`jobs.options.${jobName}.${option}`, { lng: toLocale(locale) });
 }
-export function translateJobOptionName(locale: Locale, option: string) {
-  return i18n.t(`jobs.optionNames.${option}`, { lng: locale });
+export function translateJobOptionName(locale: Locale | LocaleExtended, option: string) {
+  return i18n.t(`jobs.optionNames.${option}`, { lng: toLocale(locale) });
 }
-export function translateJobParameterName(locale: Locale, jobName: string, parameterName: string) {
-  return i18n.t(`jobs.parameters.${jobName}.${parameterName}`, { lng: locale });
+export function translateJobParameterName(locale: Locale | LocaleExtended, jobName: string, parameterName: string) {
+  return i18n.t(`jobs.parameters.${jobName}.${parameterName}`, { lng: toLocale(locale) });
 }
-export function translateJobStatus(locale: Locale, status: JobStatus) {
-  return i18n.t(`jobs.status.${status}`, { lng: locale });
+export function translateJobStatus(locale: Locale | LocaleExtended, status: JobStatus) {
+  return i18n.t(`jobs.status.${status}`, { lng: toLocale(locale) });
 }
 
-export function translateJobOptions(locale: Locale, jobName: string) {
+export function translateJobOptions(locale: Locale | LocaleExtended, jobName: string) {
   // check that job exists and has options
   if (!(jobName in de.jobs.options)) {
     return null;
   }
   const options = Object.keys(de.jobs.options[jobName as keyof typeof de.jobs.options]);
   return options.reduce((pv, cv) => {
-    pv[cv] = i18n.t(`jobs.options.${jobName}.${cv}`, { lng: locale });
+    pv[cv] = i18n.t(`jobs.options.${jobName}.${cv}`, { lng: toLocale(locale) });
     return pv;
   }, {} as Record<string, string>);
 }
-export function translateJob(locale: Locale, job: JobDescription) {
+export function translateJob(locale: Locale | LocaleExtended, job: JobDescription) {
   const translation: { name: string; description: string; caution?: string } = {
-    name: translateJobName(locale, job.name),
+    name: translateJobName(toLocale(locale), job.name),
     description: translateJobDescription(locale, job.name),
   };
   if (job.caution) {
-    translation.caution = translateJobCaution(locale, job.name);
+    translation.caution = translateJobCaution(toLocale(locale), job.name);
   }
   return translation;
 }
 
-export function translateJobStep(locale: Locale, jobName: string, stepName: string) {
-  return i18n.t(`jobs.steps.${jobName}.${stepName}`, { lng: locale });
+export function translateJobStep(locale: Locale | LocaleExtended, jobName: string, stepName: string) {
+  return i18n.t(`jobs.steps.${jobName}.${stepName}`, { lng: toLocale(locale) });
 }

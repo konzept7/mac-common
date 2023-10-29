@@ -1,5 +1,5 @@
 import { DeviceState, IDevice } from './device';
-import { Locale, LocalesExtended } from './locales';
+import { Locale, LocaleExtended } from './locales';
 export type DeviceType =
   | 'Robot'
   | 'CoffeeMachine_WMF9000s'
@@ -118,7 +118,7 @@ export interface BoxConfig {
    * The default language of the box. This will be used by the terminal to display the menu. It is also used to determine the language of the receipt.
    * @example "de-DE"
    */
-  defaultLanguage: LocalesExtended;
+  defaultLanguage: LocaleExtended;
 
   /**
    * The languages that are supported by the box. These options are available to the customer on the terminal.
