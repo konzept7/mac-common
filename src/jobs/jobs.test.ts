@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { jobs } from './jobs';
-import de from '../locales/de.json';
+import de from '../locales/de';
 
 /**
  * Test jobs.

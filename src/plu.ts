@@ -65,9 +65,9 @@ export interface SeasonalProductTranslation extends ProductTranslation {
   Winter: ProductTranslation;
 }
 
-export type TranslationFile = Record<number, ProductTranslation | SeasonalProductTranslation>;
+export type ProductTranslationFile = Record<number, ProductTranslation | SeasonalProductTranslation>;
 
-export const DeProducts: TranslationFile = {
+export const DeProducts: ProductTranslationFile = {
   1: {
     name: 'Eigenes Bild',
   },
@@ -533,7 +533,7 @@ export const DeProducts: TranslationFile = {
   },
 };
 
-export const EnProducts: TranslationFile = {
+export const EnProducts: ProductTranslationFile = {
   1: {
     name: 'Custom Picture',
   },
@@ -999,7 +999,7 @@ export const EnProducts: TranslationFile = {
   },
 };
 
-export const FrProducts: TranslationFile = {
+export const FrProducts: ProductTranslationFile = {
   1: {
     name: 'Image de votre choix',
   },
@@ -1465,7 +1465,7 @@ export const FrProducts: TranslationFile = {
   },
 };
 
-export const EsProducts: TranslationFile = {
+export const EsProducts: ProductTranslationFile = {
   1: {
     name: 'Imagen propia',
   },

@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import de from './locales/de.json';
-import en from './locales/en.json';
-import fr from './locales/fr.json';
-import es from './locales/es.json';
+import de from './locales/de';
+import en from './locales/en';
+import fr from './locales/fr';
+import es from './locales/es';
 
 /**
  * Tests if the keys of the master object are also in the test object.

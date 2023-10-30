@@ -1,39 +1,43 @@
 import { DeviceState } from './device';
 import { BoxState } from './box';
 import { Locale, LocaleExtended, toLocale } from './locales';
-import { DeProducts, EnProducts, EsProducts, FrProducts, ProductTranslation, TranslationFile } from './plu';
-import i18n from 'i18next';
+import { DeProducts, EnProducts, EsProducts, FrProducts, ProductTranslation, ProductTranslationFile } from './plu';
 
-import de from './locales/de.json';
-import en from './locales/en.json';
-import fr from './locales/fr.json';
-import es from './locales/es.json';
+import de from './locales/de';
+import en, { Translation } from './locales/en';
+import fr from './locales/fr';
+import es from './locales/es';
 import { JobDescription, JobStatus } from './jobs/job';
 
+type NestedKeys<T> = T extends object
+  ? {
+      [K in keyof T]: K extends string ? (T[K] extends object ? `${K}.${NestedKeys<T[K]>}` : K) : never;
+    }[keyof T]
+  : '';
+
 export const resources = {
-  en: {
-    translation: en,
-  },
-  de: {
-    translation: de,
-  },
-  fr: {
-    translation: fr,
-  },
-  es: {
-    translation: es,
-  },
+  en,
+  de,
+  es,
+  fr,
 } as const;
 
-i18n.init({
-  interpolation: {
-    escapeValue: false, // not needed for react as it escapes by default
-  },
-  fallbackLng: 'de',
-  resources,
-});
+// Function to get translation value by nested key
+export function t<K extends NestedKeys<Translation>>(key: K, locale: Locale | LocaleExtended): string {
+  const keys = key.split('.') as string[];
+  let result: any = resources[toLocale(locale)];
 
-export const productTranslations: Record<Locale, TranslationFile> = {
+  for (const k of keys) {
+    result = result[k];
+  }
+
+  return result || key; // or some fallback logic
+}
+export function tt(key: string, locale: Locale | LocaleExtended): string {
+  return t(key as NestedKeys<Translation>, locale);
+}
+
+export const productTranslations: Record<Locale, ProductTranslationFile> = {
   de: DeProducts,
   en: EnProducts,
   fr: FrProducts,
@@ -74,47 +78,45 @@ export function getProduct(PLU: number, locale: Locale | LocaleExtended): Produc
 }
 
 export function translateDeviceState(locale: Locale | LocaleExtended, state?: DeviceState): string {
-  return i18n.t(`deviceStates.${state ?? 'Unknown'}`, { lng: toLocale(locale) });
+  return tt(`deviceStates.${state ?? 'Unknown'}`, locale);
 }
 
 export function translateServerState(locale: Locale | LocaleExtended, state?: BoxState): string {
-  return i18n.t(`serverStates.${state ?? 'Unknown'}`, {
-    lng: toLocale(locale),
-  });
+  return tt(`serverStates.${state ?? 'Unknown'}`, locale);
 }
 
 export function translateDevice(locale: Locale | LocaleExtended, device: string): string {
-  return i18n.t(`deviceTypes.${device}`, { lng: toLocale(locale) });
+  return tt(`deviceTypes.${device}`, locale);
 }
 
 export function translateGoods(locale: Locale | LocaleExtended, goods: string): string {
-  return i18n.t(`goods.${goods}`, { lng: toLocale(locale) });
+  return tt(`goods.${goods}`, locale);
 }
 
 export function translateJobName(locale: Locale | LocaleExtended, jobName: string): string {
-  return i18n.t(`jobs.names.${jobName}`, { lng: toLocale(locale) });
+  return tt(`jobs.names.${jobName}`, locale);
 }
 export function translateJobDescription(locale: Locale | LocaleExtended, jobName: string): string {
-  return i18n.t(`jobs.descriptions.${jobName}`, { lng: toLocale(locale) });
+  return tt(`jobs.descriptions.${jobName}`, locale);
 }
 export function translateJobCaution(locale: Locale | LocaleExtended, jobName: string) {
   // check that job exists and has caution
   if (!(jobName in de.jobs.cautions)) {
     return undefined;
   }
-  return i18n.t(`jobs.cautions.${jobName}`, { lng: toLocale(locale) });
+  return tt(`jobs.cautions.${jobName}`, locale);
 }
 export function translateJobOption(locale: Locale | LocaleExtended, jobName: string, option: string) {
-  return i18n.t(`jobs.options.${jobName}.${option}`, { lng: toLocale(locale) });
+  return tt(`jobs.options.${jobName}.${option}`, locale);
 }
 export function translateJobOptionName(locale: Locale | LocaleExtended, option: string) {
-  return i18n.t(`jobs.optionNames.${option}`, { lng: toLocale(locale) });
+  return tt(`jobs.optionNames.${option}`, locale);
 }
 export function translateJobParameterName(locale: Locale | LocaleExtended, jobName: string, parameterName: string) {
-  return i18n.t(`jobs.parameters.${jobName}.${parameterName}`, { lng: toLocale(locale) });
+  return tt(`jobs.parameters.${jobName}.${parameterName}`, locale);
 }
 export function translateJobStatus(locale: Locale | LocaleExtended, status: JobStatus) {
-  return i18n.t(`jobs.status.${status}`, { lng: toLocale(locale) });
+  return tt(`jobs.status.${status}`, locale);
 }
 
 export function translateJobOptions(locale: Locale | LocaleExtended, jobName: string) {
@@ -124,7 +126,7 @@ export function translateJobOptions(locale: Locale | LocaleExtended, jobName: st
   }
   const options = Object.keys(de.jobs.options[jobName as keyof typeof de.jobs.options]);
   return options.reduce((pv, cv) => {
-    pv[cv] = i18n.t(`jobs.options.${jobName}.${cv}`, { lng: toLocale(locale) });
+    pv[cv] = tt(`jobs.options.${jobName}.${cv}`, locale);
     return pv;
   }, {} as Record<string, string>);
 }
@@ -140,5 +142,5 @@ export function translateJob(locale: Locale | LocaleExtended, job: JobDescriptio
 }
 
 export function translateJobStep(locale: Locale | LocaleExtended, jobName: string, stepName: string) {
-  return i18n.t(`jobs.steps.${jobName}.${stepName}`, { lng: toLocale(locale) });
+  return tt(`jobs.steps.${jobName}.${stepName}`, locale);
 }

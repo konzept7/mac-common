@@ -36,7 +36,7 @@ export { BoxConfig, IBoxPresence, TaxConfig, BoxReduced } from './box';
 export type { Origin, OrderStatus } from './order';
 export { ILiveOrder, LiveOrder } from './order';
 export { ProductTranslation, SeasonalProductTranslation } from './plu';
-export type { TranslationFile } from './plu';
+export type { ProductTranslation as TranslationFile } from './plu';
 export { sampleBoxConfig } from './sample-data/sampleBox';
 export {
   samplePercentVoucher,
