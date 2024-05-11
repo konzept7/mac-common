@@ -1,6 +1,6 @@
 export * from './translate';
 export type { Side } from './device';
-export type { BoxState, ConnectionState, IBox } from './box';
+// export type { BoxState, ConnectionState, IBox } from './box';
 export type { Locale, LocaleExtended } from './locales';
 export { toLocale } from './locales';
 export type { VoucherType, VoucherState, VoucherBaseOption, RedeemingDevice } from './voucher';
@@ -32,7 +32,7 @@ export {
 export * from './jobs/job';
 
 export { IDevice, IRefillableDevice, DeviceState, IDeviceUpdateMessage } from './device';
-export { BoxConfig, IBoxPresence, TaxConfig, BoxReduced } from './box';
+// export { BoxConfig, IBoxPresence, TaxConfig, BoxReduced } from './box';
 export type { Origin, OrderStatus } from './order';
 export { ILiveOrder, LiveOrder } from './order';
 export { ProductTranslation, SeasonalProductTranslation } from './plu';
