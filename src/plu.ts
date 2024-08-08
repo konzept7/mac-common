@@ -340,6 +340,18 @@ export const DeProducts: ProductTranslationFile = {
     name: 'Mandelmilch',
     img: `${milk}`,
   },
+  2131: {
+    name: 'Hafermilch',
+    img: `${milk}`,
+  },
+  2132: {
+    name: 'Hafermilch',
+    img: `${milk}`,
+  },
+  2133: {
+    name: 'Hafermilch',
+    img: `${milk}`,
+  },
   2150: {
     name: 'Iced Chai Latte Vanilla',
     description: 'Eis, Milch, Schaum, Chai- & Vanillesirup',
@@ -804,6 +816,18 @@ export const EnProducts: ProductTranslationFile = {
   },
   2123: {
     name: 'Almond milk',
+    img: `${milk}`,
+  },
+  2131: {
+    name: 'Oat milk',
+    img: `${milk}`,
+  },
+  2132: {
+    name: 'Oat milk',
+    img: `${milk}`,
+  },
+  2133: {
+    name: 'Oat milk',
     img: `${milk}`,
   },
   2150: {
@@ -1272,6 +1296,18 @@ export const FrProducts: ProductTranslationFile = {
     name: "Lait d'amande",
     img: `${milk}`,
   },
+  2131: {
+    name: "Lait d'avoine",
+    img: `${milk}`,
+  },
+  2132: {
+    name: "Lait d'avoine",
+    img: `${milk}`,
+  },
+  2133: {
+    name: "Lait d'avoine",
+    img: `${milk}`,
+  },
   2150: {
     name: 'Iced Vanilla Chai',
     description: 'Milk, foam, chai syrup, vanilla syrup',
@@ -1736,6 +1772,18 @@ export const EsProducts: ProductTranslationFile = {
   },
   2123: {
     name: 'Leche de almendras',
+    img: `${milk}`,
+  },
+  2131: {
+    name: 'Leche de avena',
+    img: `${milk}`,
+  },
+  2132: {
+    name: 'Leche de avena',
+    img: `${milk}`,
+  },
+  2133: {
+    name: 'Leche de avena',
     img: `${milk}`,
   },
   2150: {
