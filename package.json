@@ -1,6 +1,6 @@
 {
   "name": "mac-common",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "Provides types, products and commnunal data for MyAppCafé projects.",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
